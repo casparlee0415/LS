@@ -40,6 +40,9 @@ run: all
 test: all
 	bin/ut_main
 
+exec: test
+	bin/main
+
 valgrind: clean all
 	valgrind \
 	--tool=memcheck --error-exitcode=1 --track-origins=yes --leak-check=full --leak-resolution=high \
