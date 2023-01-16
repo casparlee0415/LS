@@ -12,7 +12,7 @@ class Device{
             if(val==NULL)  throw invalid_argument("Cannot add null pointer");
             else{
                 iPins.push_back(val);
-                val->connect=true;
+                val->setConnectTrue();
             }
         }
 
@@ -33,6 +33,9 @@ class Device{
     protected:
         vector<Device *> iPins;
         bool connect=false;
+        void setConnectTrue(){
+            connect=true;
+        }
 };
 
 
