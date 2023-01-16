@@ -2,34 +2,6 @@
 
 using namespace std;
 
-
-bool LogicSimulator::load(string filename){
-
-    clear();
-    
-    string buffer=readbuf(filename);
-
-    if(buffer=="") return false;
-
-    vector<string> token=splitLine(buffer); 
-
-
-    try{
-        setDeviceNum(token);
-        if(iPins.size()<=0) throw logic_error("No iPins");
-        if(circuit.size()<=0) throw logic_error("No circuits");
-        setCircuit(token);
-        setOutput();
-        if(oPins.size()<=0) throw logic_error("No oPins");
-    }
-    catch(const std::exception &e){
-        clear();
-        return false;
-    }
-    
-    return true;
-}
-
 void LogicSimulator::setDeviceNum(vector<string> &token){
     int NI=0,NG=0;
 

@@ -26,8 +26,8 @@ class LogicSimulator{
         string headerThree();
         string getHeader();
         string inputPins(vector<int>);
-        void clear();
 
+        void clear();
         void setDeviceNum(vector<string> &);
         void setCircuit(vector<string> &);
         void setOutput();
@@ -71,9 +71,27 @@ class LogicSimulator{
             return output;
         }
 
-        bool load(string filename);
-
-        
+        bool load(string filename){
+            clear();
+            string buffer=readbuf(filename);
+            if(buffer=="") return false;
+            vector<string> token=splitLine(buffer); 
+            
+            try{
+                setDeviceNum(token);
+                if(iPins.size()<=0) throw logic_error("No iPins");
+                if(circuit.size()<=0) throw logic_error("No circuits");
+                setCircuit(token);
+                setOutput();
+                if(oPins.size()<=0) throw logic_error("No oPins");
+            }
+            catch(const std::exception &e){
+                clear();
+                return false;
+            }
+            
+            return true;
+        }
 
         ~LogicSimulator(){
             clear();
