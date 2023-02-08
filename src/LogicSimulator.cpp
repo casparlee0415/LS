@@ -177,6 +177,22 @@ string LogicSimulator::inputPins(vector<int> input){
     return output;
 }
 
+vector<vector<int>> LogicSimulator::inputTable(){
+    int N=(int)pow(2,iPins.size());
+    vector<vector<int>> matrix;
+    int M=iPins.size()-1;
+
+    for(int i=0;i<N;i++){
+        vector<int> input;
+
+        for (int j = 0; j < iPins.size(); j++) input.push_back((i >> (M - j)) & 0x01);
+        matrix.push_back(input);
+        input.clear();
+    }
+
+    return matrix;
+}
+
 void LogicSimulator::clear(){
     for(int i=0;i<iPins.size();i++) delete iPins[i];
     iPins.clear();

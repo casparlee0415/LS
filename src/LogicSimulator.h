@@ -26,6 +26,7 @@ class LogicSimulator{
         string headerThree();
         string getHeader();
         string inputPins(vector<int>);
+        vector<vector<int>> inputTable();
 
         void clear();
         void setDeviceNum(vector<string> &);
@@ -55,17 +56,13 @@ class LogicSimulator{
         string getTruthTable(){
             string output="";
             stringstream ss;
-            vector<int> input;
-
-            int N=(int)pow(2,iPins.size());  //There are 2^(iPin number) kinds of input.
+            vector<vector<int>> inputMatrix=inputTable();
 
             output+="Truth table:\n";
             output+=getHeader();
 
-            for(int i=0;i<N;i++){
-                for(int j=0;j<iPins.size();j++)  input.push_back((i>>(iPins.size()-j-1))&0x01);
-                output+=inputPins(input);
-                input.clear();
+            for(int i=0;i<inputMatrix.size();i++){
+                output+=inputPins(inputMatrix[i]);
             }
 
             return output;
