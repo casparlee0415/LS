@@ -41,7 +41,13 @@ class LogicSimulator{
         vector<Device *> iPins;
         vector<Device *> oPins;
 
+        LogicSimulator(){}
+
     public:
+        static LogicSimulator getInstance(){
+            return LogicSimulator();
+        }
+
         string getSimulationResult(vector<int> input){
             string output="";
             stringstream ss;

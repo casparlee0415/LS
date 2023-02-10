@@ -8,6 +8,11 @@ using namespace std;
 class TextUI
 {
     public:
+
+        static TextUI getInstance(){
+            return TextUI();
+        }
+
         void displayMenu(){
             cout<<"1. Load logic circuit file"<<endl;
             cout<<"2. Simulation"<<endl;
@@ -47,7 +52,9 @@ class TextUI
     private:
         bool exit=false;
         bool fileLoad=false; 
-        LogicSimulator LS;
+        LogicSimulator LS=LogicSimulator::getInstance();
+
+        TextUI(){}
 
         void loadingFile(){
             string filename;

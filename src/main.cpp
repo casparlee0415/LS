@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    TextUI textUI; 
+    TextUI textUI=TextUI::getInstance();
 
     while(!textUI.isExit())
     {

@@ -17,7 +17,7 @@ TEST = test/Device/ut_gateAnd.h \
 		test/Device/ut_gateOR.h \
 		test/Device/ut_iPin.h \
 		test/Device/ut_oPin.h \
-		test/ut_LogicSimulator.h
+		test/ut_LogicSimulator.h 
 
 main: src/main.cpp src/TextUI.h $(SRC) $(OBJ)
 	g++ -std=c++17 src/main.cpp $(OBJ) -o bin/main -lpthread

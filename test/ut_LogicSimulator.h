@@ -2,7 +2,7 @@
 
 class LogicSimulatorTest : public ::testing::Test{
     protected:
-        LogicSimulator LS;
+        LogicSimulator LS=LogicSimulator::getInstance();
         std::string filename;
 
         void SetUp() override{
