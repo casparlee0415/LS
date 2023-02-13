@@ -2,10 +2,11 @@
 
 class LogicSimulatorTest : public ::testing::Test{
     protected:
-        LogicSimulator LS=LogicSimulator::getInstance();
+        LogicSimulator LS;
         std::string filename;
 
         void SetUp() override{
+            LS=LogicSimulator();
             filename="File1.lcf";
         }
 

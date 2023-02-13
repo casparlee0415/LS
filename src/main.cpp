@@ -9,11 +9,11 @@ int main()
 {
     TextUI textUI=TextUI::getInstance();
 
-    while(!textUI.isExit())
-    {
+    while(!textUI.isExit()){
         textUI.displayMenu();
         textUI.processCommand();
     }
 
+    return 0;
 }
 

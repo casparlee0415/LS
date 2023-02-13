@@ -9,8 +9,8 @@ class TextUI
 {
     public:
 
-        static TextUI getInstance(){
-            return TextUI();
+        static TextUI& getInstance(){
+            return instance;
         }
 
         void displayMenu(){
@@ -52,9 +52,11 @@ class TextUI
     private:
         bool exit=false;
         bool fileLoad=false; 
-        LogicSimulator LS=LogicSimulator::getInstance();
+        LogicSimulator LS;
 
         TextUI(){}
+
+        static TextUI instance;
 
         void loadingFile(){
             string filename;
@@ -99,3 +101,5 @@ class TextUI
             cout<<"Goodbye, thanks for using LS."<<endl;
         }
 };
+
+TextUI TextUI::instance;
